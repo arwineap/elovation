@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  elovation:
+    image: ruby:2.4.0
+    ports:
+    - "3000:3000"
+    volumes:
+    - .:/code
+    links:
+    - postgres
+    environment:
+    - RAILS_ENV=docker
+    - POSTGRES_USER=elovation
+    - POSTGRES_PASSWORD=8932hnief890y2
+    - POSTGRES_DB=elovation_docker
+    - BUNDLE_PATH=./vendor/bundle
+    working_dir: /code
+    command: bundle exec rails s
+
+  postgres:
+      image: postgres:9.6
+      environment:
+      - POSTGRES_USER=elovation
+      - POSTGRES_PASSWORD=8932hnief890y2
+      - POSTGRES_DB=elovation_docker
