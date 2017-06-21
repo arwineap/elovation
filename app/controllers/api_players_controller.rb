@@ -24,6 +24,30 @@ class ApiPlayersController < ApiController
   end
 
   def show
+    @player = Player.find(params[:id])
+    if @player
+      render :show
+    else
+      render :new
+    end
+  end
+
+  def get_by_name
+    @player = Player.find_by(name: params[:name])
+    if @player
+      render :show
+    else
+      render :new
+    end
+  end
+
+  def get_by_email
+    @player = Player.find_by(email: params[:email])
+    if @player
+      render :show
+    else
+      render :new
+    end
   end
 
   def update
