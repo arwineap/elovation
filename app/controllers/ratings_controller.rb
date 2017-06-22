@@ -4,7 +4,7 @@ class RatingsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        render json: @game
+        render json: @game.all_ratings
       end
     end
   end
