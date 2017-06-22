@@ -10,8 +10,6 @@ class ApiPlayerGamesController < ApiController
     @json_data['player'] = Hash.new
     @json_data['player']['id'] = @player.id
     @json_data['player']['name'] = @player.name
-    @json_data['player']['wins'] = @player.wins
-    @json_data['player']['losses'] = @player.losses
     @json_data['chart_data'] = @chart_data
   end
 end
