@@ -37,7 +37,7 @@ class ApiPlayersController < ApiController
     if @player
       render :show
     else
-      render :new
+      raise ActionController::RoutingError.new('Not Found')
     end
   end
 
