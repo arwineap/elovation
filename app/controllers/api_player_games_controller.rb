@@ -11,5 +11,6 @@ class ApiPlayerGamesController < ApiController
     @json_data['player']['id'] = @player.id
     @json_data['player']['name'] = @player.name
     @json_data['chart_data'] = @chart_data
+    @json_data['all_ratings'] = @game.all_ratings
   end
 end
