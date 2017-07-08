@@ -11,6 +11,11 @@ class ApiPlayerGamesController < ApiController
     @json_data['player']['id'] = @player.id
     @json_data['player']['name'] = @player.name
     @json_data['chart_data'] = @chart_data
-    @json_data['all_ratings'] = @game.all_ratings.to_json
+    @json_data['wins'] = 0
+    @json_data['losses'] = 0
+    @game.all_ratings.each { |x|
+        @json_data['wins'] += @player.wins(@game, x.player)
+        @json_data['losses'] += @player.results.losses.for_game(@game).against(x.player).size
+    }
   end
 end
